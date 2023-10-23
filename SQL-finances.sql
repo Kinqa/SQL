@@ -32,7 +32,7 @@ RIGHT JOIN Expenses ON Income.ID = Expenses.ID;
 
 Results:
 TotalIncome	TotalExpenses
-79300.00	  21540.00
+79300.00	21540.00
 
 -- Query balance --
 SELECT SUM(i.Amount) - SUM(e.Amount) AS Profit
@@ -68,7 +68,7 @@ WHERE Date BETWEEN '2023-06-01' AND '2023-06-30'
 GROUP BY Date;
 
 Results:
-Date		    Expenses
+Date		Expenses
 2023-06-01	20.00
 2023-06-05	1200.00
 2023-06-15	400.00
@@ -81,12 +81,12 @@ ORDER BY Category;
 
 Results:
 Category  	TotalIncome
-Bonus		    2500.00
+Bonus		2500.00
 Consulting	4500.00
-Freelance   3300.00
+Freelance       3300.00
 Investment	13400.00
 Royalties  	1600.00
-Salary		  54000.00
+Salary		54000.00
 
 -- Query the category with the highest income --
 SELECT TOP (1) Category, SUM(Amount) AS TotalIncome
@@ -105,8 +105,8 @@ GROUP BY month(date);
 
 Results:
 MonthNumber	MonthlyIncome
-1	          5900.00
-2	          4500.00
+1	        5900.00
+2	        4500.00
 3          	13000.00
 4          	9500.00
 5          	4500.00
