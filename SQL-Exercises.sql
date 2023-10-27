@@ -59,3 +59,11 @@ WHERE skill IN ('Python', 'Tableau', 'PostgreSQL')
 GROUP BY candidate_id
 HAVING COUNT(skill) = 3
 ORDER BY candidate_id ASC;
+
+-- Query to identify the top 2 Power Users who sent the highest number of messages on Microsoft Teams in August 2022. --
+-- The outputs are the ID with the total number of messages, in descending order based on the count of the messages. --
+SELECT sender_id, COUNT(*) AS message_count FROM messages
+WHERE sent_date>'08/01/2022 00:00:00' AND sent_date<'08/31/2022 00:00:00'
+GROUP BY sender_id
+ORDER BY COUNT(*) DESC
+LIMIT 2;
