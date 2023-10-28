@@ -67,3 +67,10 @@ WHERE sent_date>'08/01/2022 00:00:00' AND sent_date<'08/31/2022 00:00:00'
 GROUP BY sender_id
 ORDER BY COUNT(*) DESC
 LIMIT 2;
+
+-- Query to find the number of days between each user’s first post of the year 2021 and last post of the year 2021. --
+-- The output is the user's id and number of the days between each user's first and last post. --
+SELECT user_id, DATE_PART('day', MAX(post_date)-MIN(post_date)) AS days_between FROM posts
+WHERE post_date > '01/01/2021 00:00:00' AND post_date < '12/31/2021 23:59:59'
+GROUP BY user_id
+HAVING COUNT(user_id)>1;
