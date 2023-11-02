@@ -74,3 +74,8 @@ SELECT user_id, DATE_PART('day', MAX(post_date)-MIN(post_date)) AS days_between 
 WHERE post_date > '01/01/2021 00:00:00' AND post_date < '12/31/2021 23:59:59'
 GROUP BY user_id
 HAVING COUNT(user_id)>1;
+
+-- Query to find the mean number of items per order. --
+-- The output is rounded to 1 decimal place. --
+SELECT ROUND(SUM(item_count*order_occurrences)::DECIMAL / SUM(order_occurrences), 1)
+FROM items_per_order;
