@@ -1,4 +1,4 @@
--- I present some solutions for the SQL challenges posted on DataLemur.com and Hackerrank.com websites. --
+-- I present some solutions for the SQL challenges posted on DataLemur.com and Hackerrank.com, among others. --
 
 -- Query for a list of city names that do not start with vowels and do not end with vowels. --
 -- The output is cities without duplicates. --
@@ -79,3 +79,11 @@ HAVING COUNT(user_id)>1;
 -- The output is rounded to 1 decimal place. --
 SELECT ROUND(SUM(item_count*order_occurrences)::DECIMAL / SUM(order_occurrences), 1)
 FROM items_per_order;
+
+-- Query to find the second largest date difference. --
+SELECT *, DATEDIFF(d,[Ending].[Date],[Beginning].[Date]) AS DateDifference 
+FROM [Portfolio].[dbo].[Beginning]
+JOIN [Portfolio].[dbo].[Ending]
+ON [Beginning].[ID] = [Ending].[ID]
+ORDER BY DateDifference
+OFFSET 1 ROW FETCH NEXT 1 ROWS ONLY;
